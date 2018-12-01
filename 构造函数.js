@@ -32,12 +32,13 @@
                 ID: i,
                 生命值: 42,
             }
-            obj.__proto__ = createSolier.xxx           
+            obj.__proto__ = createSolier.prototype
+            /* 两个东东存的东西是一样的 因为地址一样 */
             return obj
         }           
 
 
-      createSolier.xxx = {
+      createSolier.prototype = {
             兵种: "美国大兵",
             攻击力: 5,
             行走: function() { /*走两步的代码*/ },
@@ -47,6 +48,7 @@
             防御: function() { /*要脸*/ }
         }
       /*以上就是构造函数*/
+      /*原形：prototype（共有属性）或者换成 XXX 也是可以的 */
       /*以下就是如何使用构造函数*/
    
      
