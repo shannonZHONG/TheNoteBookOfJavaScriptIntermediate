@@ -10,7 +10,7 @@
             防御: function() { /*要脸*/ }
         }
 
-        function createSolier() {
+        function createSolider() {
             var obj = {
                 ID: i,
                 生命值: 42,
@@ -25,9 +25,10 @@
        soldiers.push(createSolier())
        }
         
+      ===========================================================================================================
      /*以下修改代码 为了 让代码第一部分和第二部分直接看起来就是有联系的*/
 
-     function createSolier() {
+     function createSolider() {
             var obj = {
                 ID: i,
                 生命值: 42,
@@ -57,3 +58,44 @@
        Array.prototype.push.call(soldiers,createSolier.call())
        /*soldiers.push.call(soldiers,createSolier.call())*/
        }        
+       ==============================================================================================================
+
+       /*new 这个关键词的出现*/
+       /* 使得下面这个函数少了两句话 */
+
+       function createSoldier(name){
+       this.ID = i
+       this.生命值= 42
+       this.name = name || "无名战士"
+}
+      //createSoldier.prototype = {
+      // constructor: createSoldier 
+      // /*谁创建了createSoldier：createSoldier*/
+    
+      // } 
+
+      /* 以下这种写法不好 会把 constructor这个属性覆盖掉 或者说 上面那个constructor 所在的地址 没有任何object 来引用了       
+      // createSoldier.prototype = {
+      //  兵种: "美国大兵",
+      //      攻击力: 5,
+      //      行走: function() { /*走两步的代码*/ },
+      //      奔跑: function() { /*狂奔的代码*/ },
+      //      死亡: function() { /*passed away*/ },
+      //      攻击: function() { /*攻击的代码*/ },
+      //      防御: function() { /*要脸*/ }    
+      // } 
+      /*要么在上面 直接添加 constructor: createSoldier */
+      /* 要么 推荐这种*/
+      createSoldier.prototype.兵种 ="美国大兵"
+      createSoldier.prototype.攻击力 = 5
+      createSoldier.prototype.行走 = function(){/*走两步的代码*/} 
+      createSoldier.prototype.奔跑 = function(){/*狂奔的代码*/}
+      createSoldier.prototype.死亡 = function(){/*passed away*/} 
+      createSoldier.prototype.攻击 = function(){/*攻击的代码*/} 
+      createSoldier.prototype.防御 = function(){/*要脸*/}
+
+      var soldiers = []
+      for(var i =0;i<100;i++){
+        soldiers.push(new createSoldier())       
+       }        
+
