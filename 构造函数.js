@@ -52,5 +52,6 @@
      
        var soldiers = []
        for(var i =0;i<100;i++){
-       soldiers.push.call(soldiers,createSolier.call())
+       Array.prototype.push.call(soldiers,createSolier.call())
+       /*soldiers.push.call(soldiers,createSolier.call())*/
        }        
