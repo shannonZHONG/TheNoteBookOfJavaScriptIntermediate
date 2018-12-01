@@ -17,4 +17,10 @@
             return obj
         }
         
-        var solider = createSolier()
+       var soldiers = []
+       for(var i =0;i<100;i++){
+       soldiers.push(createSolier())
+       }
+        
+     
+        
