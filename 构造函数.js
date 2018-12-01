@@ -97,5 +97,34 @@
       var soldiers = []
       for(var i =0;i<100;i++){
         soldiers.push(new createSoldier())       
-       }        
+       }    
 
+
+      =========================================================================================================
+      1 构造函数首字母大写 
+      2 构造函数可以省掉 create 
+      3 如果构造函数没有参数，那么可以不要括号 
+      
+       function Soldier(name){
+       this.ID = i
+       this.生命值= 42
+       this.name = name || "无名战士"
+}      
+      createSoldier.prototype.兵种 ="美国大兵"
+      createSoldier.prototype.攻击力 = 5
+      createSoldier.prototype.行走 = function(){/*走两步的代码*/} 
+      createSoldier.prototype.奔跑 = function(){/*狂奔的代码*/}
+      createSoldier.prototype.死亡 = function(){/*passed away*/} 
+      createSoldier.prototype.攻击 = function(){/*攻击的代码*/} 
+      createSoldier.prototype.防御 = function(){/*要脸*/}
+
+
+      var soldiers = []
+      for(var i =0;i<100;i++){
+      soldiers.push(new Soldier )       
+       }  
+      ==========================================================================================================
+      js new ： 创建一个对象同时指定特有属性和共有属性 
+      共有属性 必须要放在 prototype 之后 
+      
+       
