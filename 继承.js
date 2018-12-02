@@ -146,3 +146,12 @@ Step 4 :
 var s = new Soldier({name:"shiran",肤色:"yellow",ID:1})
 
 
+/*上面代码有问题 ： 下划线 prototype 下划线 不能在 生产环境中使用 */
+
+/*Soldier.prototype.__proto__ = Human.prototype 就是这句话*/
+
+
+
+
+
+
