@@ -216,37 +216,34 @@ Soldier.prototype.__proto__ === Human.prototype
         })
 
         
-        /*声明一个假的 用假的来 替代 Soldier.prototype.__proto__ = Human.prototype  */ 
-        
-          function Human(options) {
+/*声明一个假的 用假的来 替代 Soldier.prototype.__proto__ = Human.prototype  */ 
+function Human(options) {
             this.name = options.name
             this.肤色 = options.肤色
         }
-        Human.prototype.eat = function() {}
-        Human.prototype.drink = function() {}
-        Human.prototype.poo = function() {}
-
-        function Soldier(options) {
+Human.prototype.eat = function() {}
+Human.prototype.drink = function() {}
+Human.prototype.poo = function() {}
+function Soldier(options) {
             Human.call(this, options)
             this.ID = options.ID
             this.生命值 = 42
         }
+function fakeHuman(){}
+fakeHuman.prototype = Human.prototype
+Soldier.prototype = new fakeHuman()
         
-        function fakeHuman(){}
-        fakeHuman.prototype = Human.prototype
-        Soldier.prototype = new fakeHuman()
-        
-        Soldier.prototype
-        Soldier.prototype.兵种 = "美国大兵"
-        Soldier.prototype.攻击力 = 5
-        Soldier.prototype.行走 = function() { /*走两步的代码*/ }
-        Soldier.prototype.奔跑 = function() { /*狂奔的代码*/ }
-        Soldier.prototype.死亡 = function() { /*passed away*/ }
-        Soldier.prototype.攻击 = function() { /*攻击的代码*/ }
-        Soldier.prototype.防御 = function() { /*要脸*/ }
+
+Soldier.prototype.兵种 = "美国大兵"
+Soldier.prototype.攻击力 = 5
+Soldier.prototype.行走 = function() { /*走两步的代码*/ }
+Soldier.prototype.奔跑 = function() { /*狂奔的代码*/ }
+Soldier.prototype.死亡 = function() { /*passed away*/ }
+Soldier.prototype.攻击 = function() { /*攻击的代码*/ }
+Soldier.prototype.防御 = function() { /*要脸*/ }
 
 
-        var s = new Soldier({
+var s = new Soldier({
             name: "shiran",
             肤色: "yellow",
             ID: 1
