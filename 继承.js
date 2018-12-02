@@ -255,7 +255,7 @@ var s = new Soldier({
             ID: 1
         })
 
-
+// 私有属性 在 constructor 公有属性在 constructor 外面 
 /*用class 这个写法*/
     class Human{
     constructor(options){
@@ -266,7 +266,10 @@ var s = new Soldier({
     drink(){}
     poon(){}
 }
-// extends： Soldier.prototype.__proto__ = Human.prototype    
+
+
+// extends： Soldier.prototype.__proto__ = Human.prototype  
+
 class Soldier extends Human{
     constructor(options){
     super(options)
