@@ -217,6 +217,7 @@ Soldier.prototype.__proto__ === Human.prototype
 
         
 /*声明一个假的 用假的来 替代 Soldier.prototype.__proto__ = Human.prototype  */ 
+/**/
 function Human(options) {
             this.name = options.name
             this.肤色 = options.肤色
@@ -229,11 +230,14 @@ function Soldier(options) {
             this.ID = options.ID
             this.生命值 = 42
         }
+// 这三行代码是兼容IE的 
 function fakeHuman(){}
 fakeHuman.prototype = Human.prototype
 Soldier.prototype = new fakeHuman()
-        
+// 这一行代码不兼容IE 
+Soldier.prototype =object.create(Human.prototype)
 
+ 
 Soldier.prototype.兵种 = "美国大兵"
 Soldier.prototype.攻击力 = 5
 Soldier.prototype.行走 = function() { /*走两步的代码*/ }
