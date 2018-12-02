@@ -292,3 +292,7 @@ var s = new Soldier({
             肤色: "yellow",
             ID: 1
         })
+
+/*class 这种用法的缺点: typeof Human 给的还是function 不是class*/
+/* 既然是 function 但是 Human.call() 会报错*/
+
