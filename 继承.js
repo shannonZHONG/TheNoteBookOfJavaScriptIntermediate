@@ -67,7 +67,11 @@ s.生命值 = ""
 
  var s = new Soldier()
 /*现在唯一的问题是 object s 还没有拥有parentCommom的 私有属性 */
-/* Human.call(this) 这一句话里面的 this 是 function Soldier 里面的this相当于  把里面（function soldier ）的this 传到 外面（hunman prototype 里面去 ）
+/* 
+Human.call(this) 这一句话里面的 this 是 function Soldier 里面的this
+相当于  
+把里面（function soldier ）的this 传到 外面（hunman prototype 里面去 ）
+*/
 
 function Human() {
             this.name = "桃太狼"
@@ -92,7 +96,7 @@ Soldier.prototype.攻击 = function() { /*攻击的代码*/ }
 Soldier.prototype.防御 = function() { /*要脸*/ }
 Soldier.prototype.__proto__ = Human.prototype 
 
- var s = new Soldier()        
+var s = new Soldier()        
 
 
 
