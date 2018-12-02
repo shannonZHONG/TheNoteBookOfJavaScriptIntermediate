@@ -269,6 +269,8 @@ var s = new Soldier({
 
 
 // extends： Soldier.prototype.__proto__ = Human.prototype  
+// extends：只继承公有属性 
+//super：就相当于 Human 
 
 class Soldier extends Human{
     constructor(options){
