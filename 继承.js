@@ -19,3 +19,5 @@
         var s = {}
         s.__proto__ = soldierCommom
         /* 可以看出对象s 不仅拥有soldierCommom的所有 还拥有parentCommon*/
+        /* 原形链只负责共有属性 私有属性？*/
+
