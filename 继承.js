@@ -27,6 +27,21 @@ s.生命值 = ""
 
        /*  代码比较 散*/
       /* 用 构造函数 是模式固定下来  所以选取 new 这个特别的构造函数 来构造函数 */
+  function Soldier(name) {
+            this.ID = i
+            this.生命值 = 42
+            this.name = name || "无名战士"
+  }
+  Soldier.prototype.兵种 = "美国大兵"
+  Soldier.prototype.攻击力 = 5
+  Soldier.prototype.行走 = function() { /*走两步的代码*/ }
+  Soldier.prototype.奔跑 = function() { /*狂奔的代码*/ }
+  Soldier.prototype.死亡 = function() { /*passed away*/ }
+  Soldier.prototype.攻击 = function() { /*攻击的代码*/ }
+  Soldier.prototype.防御 = function() { /*要脸*/ }
+  s = new Soldier()
+
+/*现在唯一的问题是 object s 还没有拥有parentCommom的 属性 */
 
 
 
