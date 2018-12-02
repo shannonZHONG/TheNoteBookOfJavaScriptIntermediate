@@ -166,8 +166,18 @@ Soldier.prototype = new Human()
 /*但是这句话也不能用*/
 
 
-
-
+/*下面例子说明 Soldier.prototype.__proto__  === Human.prototype*/
+function Soldier() {
+  this.ID = options.ID
+  this.生命值 = 42
+  }
+        
+function Human() {}
+h = new Human()
+h.__proto__ === Human.prototype
+        
+Soldier.prototype = new Human()
+Soldier.prototype.__proto__ === Human.prototype
 
 
 
