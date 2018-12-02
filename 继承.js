@@ -96,7 +96,26 @@ Soldier.prototype.攻击 = function() { /*攻击的代码*/ }
 Soldier.prototype.防御 = function() { /*要脸*/ }
 Soldier.prototype.__proto__ = Human.prototype 
 
-var s = new Soldier()        
+var s = new Soldier()    
+
+
+/*
+step1: var s = new soldier()   js engine 会自动 给你创建一个空的object 
+
+Step2: 进入函数 function soldier  先执行human.call  执行完之后 会给空对象加上 name 和肤色 这两个属性  
+之后再给空对象加上 ID 声明值 这两个属性  
+还有一步自动添加  
+this. __proto__ = Soldier.prototype    
+
+Step3: 
+Soldier.prototype.__proto__ = Human.prototype
+
+
+Step 4 : 
+到这里为止 空对象 不仅有了human的公私属性 ，还有soldier 的共有属性 
+
+
+*/
 
 
 
