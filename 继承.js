@@ -119,7 +119,8 @@ Step 4 :
 
 
 /*怎么传一个对象 使对象替换xxx yyy zzz */
-
+==========================================================================================
+/*差点完美的例子*/
  function Human(options) {
             this.name = options.name
             this.肤色 = options.肤色
@@ -144,14 +145,14 @@ Step 4 :
  Soldier.prototype.__proto__ = Human.prototype
 
 var s = new Soldier({name:"shiran",肤色:"yellow",ID:1})
-
+==========================================================================================
 
 /*上面代码有问题 ： 下划线 prototype 下划线 不能在 生产环境中使用 */
 
 /*Soldier.prototype.__proto__ = Human.prototype 就是这句话*/
 
 
-// 1__proto__ 不能用
+// 1 __proto__ 不能用
 // Soldier.prototype.__proto__ = Human.prototype
 //
 
@@ -170,7 +171,7 @@ Soldier.prototype = new Human()
 function Soldier() {
   this.ID = options.ID
   this.生命值 = 42
-  }
+}
         
 function Human() {}
 h = new Human()
@@ -179,6 +180,77 @@ h.__proto__ === Human.prototype
 Soldier.prototype = new Human()
 Soldier.prototype.__proto__ === Human.prototype
 
+/* 回到那个差点完美的例子*/
+
+ function Human(options) {
+            this.name = options.name
+            this.肤色 = options.肤色
+        }
+        Human.prototype.eat = function() {}
+        Human.prototype.drink = function() {}
+        Human.prototype.poo = function() {}
+
+        function Soldier(options) {
+            Human.call(this, options)
+            this.ID = options.ID
+            this.生命值 = 42
+        }
+//这样修改之后 会多一个name 肤色 这两个属性  
+        Soldier.prototype = new Human({
+            name: "",
+            肤色: ""
+        })
+        Soldier.prototype.兵种 = "美国大兵"
+        Soldier.prototype.攻击力 = 5
+        Soldier.prototype.行走 = function() { /*走两步的代码*/ }
+        Soldier.prototype.奔跑 = function() { /*狂奔的代码*/ }
+        Soldier.prototype.死亡 = function() { /*passed away*/ }
+        Soldier.prototype.攻击 = function() { /*攻击的代码*/ }
+        Soldier.prototype.防御 = function() { /*要脸*/ }
+
+
+        var s = new Soldier({
+            name: "shiran",
+            肤色: "yellow",
+            ID: 1
+        })
+
+        
+        /*声明一个假的 用假的来 替代 Soldier.prototype.__proto__ = Human.prototype  */ 
+        
+          function Human(options) {
+            this.name = options.name
+            this.肤色 = options.肤色
+        }
+        Human.prototype.eat = function() {}
+        Human.prototype.drink = function() {}
+        Human.prototype.poo = function() {}
+
+        function Soldier(options) {
+            Human.call(this, options)
+            this.ID = options.ID
+            this.生命值 = 42
+        }
+        
+        function fakeHuman(){}
+        fakeHuman.prototype = Human.prototype
+        Soldier.prototype = new fakeHuman()
+        
+        Soldier.prototype
+        Soldier.prototype.兵种 = "美国大兵"
+        Soldier.prototype.攻击力 = 5
+        Soldier.prototype.行走 = function() { /*走两步的代码*/ }
+        Soldier.prototype.奔跑 = function() { /*狂奔的代码*/ }
+        Soldier.prototype.死亡 = function() { /*passed away*/ }
+        Soldier.prototype.攻击 = function() { /*攻击的代码*/ }
+        Soldier.prototype.防御 = function() { /*要脸*/ }
+
+
+        var s = new Soldier({
+            name: "shiran",
+            肤色: "yellow",
+            ID: 1
+        })
 
 
 
