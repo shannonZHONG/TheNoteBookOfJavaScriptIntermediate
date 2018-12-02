@@ -151,6 +151,24 @@ var s = new Soldier({name:"shiran",肤色:"yellow",ID:1})
 /*Soldier.prototype.__proto__ = Human.prototype 就是这句话*/
 
 
+// 1__proto__ 不能用
+// Soldier.prototype.__proto__ = Human.prototype
+//
+
+function Human(){
+// this = {}
+// this.__proto__ = Human.prototype
+// return this
+}
+
+Soldier.prototype = new Human()
+//Soldier.prototype.__proto__ === this.__proto_ === Human.prototype
+/*但是这句话也不能用*/
+
+
+
+
+
 
 
 
