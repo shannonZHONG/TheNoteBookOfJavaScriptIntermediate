@@ -236,6 +236,8 @@ fakeHuman.prototype = Human.prototype
 Soldier.prototype = new fakeHuman()
 // 这一行代码不兼容IE 
 Soldier.prototype =object.create(Human.prototype)
+// in your mind 
+Soldier.prototype.__proto__ = Human.prototype
 
  
 Soldier.prototype.兵种 = "美国大兵"
