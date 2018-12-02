@@ -256,5 +256,34 @@ var s = new Soldier({
         })
 
 
+/*用class 这个写法*/
+    class Human{
+    constructor(options){
+    this.name = options.name
+    this.肤色 = options.肤色
+}
+    eat(){}
+    drink(){}
+    poon(){}
+}
+// extends： Soldier.prototype.__proto__ = Human.prototype    
+class Soldier extends Human{
+    constructor(options){
+    super(options)
+    this.ID = options.id
+    this.生命值= 42
+    this.兵种 = "美国大兵"
+    this.攻击力 = 5
+}
+    walking(){}
+    running(){}
+    passedAway(){}
+    fighting(){}
+    protecting(){}
+}
 
-
+var s = new Soldier({
+            name: "shiran",
+            肤色: "yellow",
+            ID: 1
+        })
