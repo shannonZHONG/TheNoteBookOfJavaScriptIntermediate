@@ -22,30 +22,27 @@ Asian 继承 Human，Human 继承 Animal
 
 
 /*重点 对象是如何继承父 的共有属性  对象是如何继承 父的 私有属性*/
- function Animal() {}
-        Animal.prototype.行走 = function() { /*Animal的行走的代码*/ }
+function Animal() {}
+ Animal.prototype.行走 = function() { /*Animal的行走的代码*/ }
 
-        function Human(options) {
-            this.name = options.name
-            this.birthDay = options.birthDay
+ function Human(options) {
+ this.name = options.name
+ this.birthDay = options.birthDay
         }
 
  Human.prototype.物种 = "人类"
- Human.prototype.行动 = function() { /*Human的行走的代码*/ }
+
  Human.prototype.使用工具 = function() { /*Human的使用工具的代码*/ }
 
  function fakeHuman() {}
  fakeHuman.__proto__ = Animal.prototype
  Human.prototype.__proto__ = new fakeHuman()
 
-  function Asian(options) {
-  Human.call(this,options)
-  this.city = options.city
-         }
+ function Asian(options) {
+ Human.call(this,options)
+ this.city = options.city
+  }
 
- Asian.prototype.物种 = function() { /*Asian 的物种代码*/ }
- Asian.prototype.行动 = function() { /*Asian 的行动代码*/ }
- Asian.prototype.使用工具 = function() { /*Asian使用工具代码 的*/ }
  Asian.prototype.肤色 = "yellow"
 
  function fakeAsian() {}
@@ -55,8 +52,32 @@ Asian 继承 Human，Human 继承 Animal
  var jack = new Asian({
             name: "Jack",
             city: "chongQIng",
-            dataOfBirth: "1990-1-1"
+            dataOfBirth: "1990-01-01"
         })
+ 
+ 
+ class Animal {
+ 行动() {}
+        }
+ class Human extends Animal {
+ constructor(options) {
+ // 重点 
+ super()
+ this.name = options.name
+ this.birthDay = options.birthDay
+ this.物种 = "人类"
+  }
+ 使用工具() {}
+
+ }
+
+class Asian extends Human {
+constructor(options) {
+super(options)
+this.city = options.city
+this.肤色 = "yellow"
+}
+}
  
  
  
