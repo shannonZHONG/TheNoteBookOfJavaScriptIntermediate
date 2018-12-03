@@ -19,6 +19,7 @@ Asian 继承 Human，Human 继承 Animal
 */
 
 /*唯一的问题就是 dataOfbirth 传的字体有问题 */
+/*重点 对象是如何继承父 的共有属性  对象是如何继承 父的 私有属性*/
  function Animal() {}
         Animal.prototype.行走 = function() { /*Animal的行走的代码*/ }
 
