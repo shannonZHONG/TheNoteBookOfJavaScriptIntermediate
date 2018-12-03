@@ -17,3 +17,40 @@ Asian 继承 Human
 最后一个新对象是 Asian 构造出来的
 Asian 继承 Human，Human 继承 Animal
 */
+
+/*唯一的问题就是 dataOfbirth 传的字体有问题 */
+ function Animal() {}
+        Animal.prototype.行走 = function() { /*Animal的行走的代码*/ }
+
+        function Human(options) {
+            this.name = options.name
+            this.birthDay = options.birthDay
+        }
+
+        Human.prototype.物种 = "人类"
+        Human.prototype.行动 = function() { /*Human的行走的代码*/ }
+        Human.prototype.使用工具 = function() { /*Human的使用工具的代码*/ }
+
+        function fakeHuman() {}
+        fakeHuman.__proto__ = Animal.prototype
+        Human.prototype.__proto__ = new fakeHuman()
+
+        function Asian(options1) {
+            this.city = options1.city
+            this.name = options1.name
+            this.birthday = options1.birthday
+
+        }
+        Asian.prototype.物种 = function() { /*Asian 的物种代码*/ }
+        Asian.prototype.行动 = function() { /*Asian 的行动代码*/ }
+        Asian.prototype.使用工具 = function() { /*Asian使用工具代码 的*/ }
+        Asian.prototype.肤色 = "yellow"
+
+        function fakeAsian() {}
+        fakeAsian.__proto__ = Human.prototype
+        Asian.prototype.__proto__ = new fakeAsian()
+        var jack = new Asian({
+            name: "Jack",
+            city: "chongQIng",
+            dataOfBirth: "1990-1-1"
+        })
