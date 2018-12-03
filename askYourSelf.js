@@ -36,10 +36,11 @@ Asian 继承 Human，Human 继承 Animal
         Human.prototype.__proto__ = new fakeHuman()
 
         function Asian(options1) {
+            Human.call(this,option1)
             this.city = options1.city
             this.name = options1.name
             this.birthday = options1.birthday
-
+         
         }
         Asian.prototype.物种 = function() { /*Asian 的物种代码*/ }
         Asian.prototype.行动 = function() { /*Asian 的行动代码*/ }
