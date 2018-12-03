@@ -30,30 +30,33 @@ Asian 继承 Human，Human 继承 Animal
             this.birthDay = options.birthDay
         }
 
-        Human.prototype.物种 = "人类"
-        Human.prototype.行动 = function() { /*Human的行走的代码*/ }
-        Human.prototype.使用工具 = function() { /*Human的使用工具的代码*/ }
+ Human.prototype.物种 = "人类"
+ Human.prototype.行动 = function() { /*Human的行走的代码*/ }
+ Human.prototype.使用工具 = function() { /*Human的使用工具的代码*/ }
 
-        function fakeHuman() {}
-        fakeHuman.__proto__ = Animal.prototype
-        Human.prototype.__proto__ = new fakeHuman()
+ function fakeHuman() {}
+ fakeHuman.__proto__ = Animal.prototype
+ Human.prototype.__proto__ = new fakeHuman()
 
-        function Asian(options) {
-            Human.call(this,options)
-            this.city = options.city
+  function Asian(options) {
+  Human.call(this,options)
+  this.city = options.city
          }
 
-        Asian.prototype.物种 = function() { /*Asian 的物种代码*/ }
-        Asian.prototype.行动 = function() { /*Asian 的行动代码*/ }
-        Asian.prototype.使用工具 = function() { /*Asian使用工具代码 的*/ }
-        Asian.prototype.肤色 = "yellow"
+ Asian.prototype.物种 = function() { /*Asian 的物种代码*/ }
+ Asian.prototype.行动 = function() { /*Asian 的行动代码*/ }
+ Asian.prototype.使用工具 = function() { /*Asian使用工具代码 的*/ }
+ Asian.prototype.肤色 = "yellow"
 
-        function fakeAsian() {}
-        fakeAsian.__proto__ = Human.prototype
-        Asian.prototype.__proto__ = new fakeAsian()
+ function fakeAsian() {}
+ fakeAsian.__proto__ = Human.prototype
+ Asian.prototype.__proto__ = new fakeAsian()
 
-        var jack = new Asian({
+ var jack = new Asian({
             name: "Jack",
             city: "chongQIng",
             dataOfBirth: "1990-1-1"
         })
+ 
+ 
+ 
