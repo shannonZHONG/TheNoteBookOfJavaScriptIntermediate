@@ -56,6 +56,46 @@ function Animal() {}
         })
  
  
+ 
+ /* the solution from the lecture*/
+ function Animal(){
+
+}
+Animal.prototype.行动 = function(){}
+function Human(options){
+    Animal.call(this, options)
+    this.name = options.name
+    this.birthday = options.birthday
+}
+extend(Human, Animal)
+Human.prototype.物种 = '人类'
+Human.prototype.行动 = function(){}
+Human.prototype.使用工具 = function(){}
+function Asian(options){
+  Human.call(this, options)
+  this.city = options.city
+}
+extend(Asian, Human)
+Asian.prototype.肤色 = '黄色'
+
+
+let a = new Asian({city: '北京', name: 'Frank', birthday: '2000-10-10' })
+console.log(a)
+
+
+
+
+
+/* 帮助函数 */
+
+function extend(child, parent){
+  var f = function(){}
+  f.prototype = parent.prototype
+  child.prototype = new f()
+  child.prototype.constructor = child
+} 
+ 
+ 
  class Animal {
  行动() {}
         }
