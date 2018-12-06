@@ -53,7 +53,7 @@ Animal.prototype.行走 = function() { /*Animal的行走的代码*/ }
  var jack = new Asian({
             name: "Jack",
             city: "chongQIng",
-            dataOfBirth: "1990-01-01"
+            birthDay: "1990-01-01"
         })
  
  
@@ -93,11 +93,10 @@ function extend(child, parent){
   var f = function(){}
   f.prototype = parent.prototype
   child.prototype = new f()
-  child.prototype.constructor = child
+  child.prototype.constructor = child //????
 } 
  
-//  only diff is how to have the  public properties of parent 
-//  
+ 
 ======================================================================================================= 
  class Animal {
  行动() {}
