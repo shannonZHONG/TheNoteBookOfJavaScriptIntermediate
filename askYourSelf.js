@@ -56,8 +56,8 @@ function Animal() {}
         })
  
  
- 
- /* the solution from the lecture*/
+ ====================================================================================================
+ /* the solution from the lecture*/                         
  function Animal(){
 
 }
@@ -95,7 +95,9 @@ function extend(child, parent){
   child.prototype.constructor = child
 } 
  
- 
+//  only diff is how to have the  public properties of parent 
+//  
+======================================================================================================= 
  class Animal {
  行动() {}
         }
