@@ -23,31 +23,32 @@ Asian 继承 Human，Human 继承 Animal
 
 /*重点 对象是如何继承父 的共有属性  对象是如何继承 父的 私有属性*/
 function Animal() {}
- Animal.prototype.行走 = function() { /*Animal的行走的代码*/ }
+Animal.prototype.行走 = function() { /*Animal的行走的代码*/ }
 
  function Human(options) {
+ Animal.call(this, options)
  this.name = options.name
  this.birthDay = options.birthDay
-        }
+ }
+ function fakeHuman() {}
+ fakeHuman  = Animal.prototype
+ Human.prototype = new fakeHuman()
 
  Human.prototype.物种 = "人类"
-
  Human.prototype.使用工具 = function() { /*Human的使用工具的代码*/ }
 
- function fakeHuman() {}
- fakeHuman.__proto__ = Animal.prototype
- Human.prototype.__proto__ = new fakeHuman()
-
+ 
  function Asian(options) {
  Human.call(this,options)
  this.city = options.city
   }
 
+ function fakeAsian() {}
+ fakeAsian.prototype = Human.prototype
+ Asian.prototype  = new fakeAsian()
+
  Asian.prototype.肤色 = "yellow"
 
- function fakeAsian() {}
- fakeAsian.__proto__ = Human.prototype
- Asian.prototype.__proto__ = new fakeAsian()
 
  var jack = new Asian({
             name: "Jack",
