@@ -114,13 +114,13 @@
        this.生命值= 42
        this.name = name || "无名战士"
 }      
-      createSoldier.prototype.兵种 ="美国大兵"
-      createSoldier.prototype.攻击力 = 5
-      createSoldier.prototype.行走 = function(){/*走两步的代码*/} 
-      createSoldier.prototype.奔跑 = function(){/*狂奔的代码*/}
-      createSoldier.prototype.死亡 = function(){/*passed away*/} 
-      createSoldier.prototype.攻击 = function(){/*攻击的代码*/} 
-      createSoldier.prototype.防御 = function(){/*要脸*/}
+      Soldier.prototype.兵种 ="美国大兵"
+      Soldier.prototype.攻击力 = 5
+      Soldier.prototype.行走 = function(){/*走两步的代码*/} 
+      Soldier.prototype.奔跑 = function(){/*狂奔的代码*/}
+      Soldier.prototype.死亡 = function(){/*passed away*/} 
+      Soldier.prototype.攻击 = function(){/*攻击的代码*/} 
+      Soldier.prototype.防御 = function(){/*要脸*/}
 
 
       var soldiers = []
