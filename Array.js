@@ -34,3 +34,21 @@ sdksldals( function(){})
                 console.log("我接受到了一个函数")
             }
         }
+
+/*再次测试接收的是一个函数 并且执行这个函数 */  
+function 接收函数且执行这个函数(y) {
+            if (typeof y !== "function") {
+                console.log("滚")
+                return false
+            } else {
+                console.log("我接受到了一个函数")
+                y()
+                console.log("并且我执行了这个函数")
+                return true
+            }
+        }
+接收函数且执行这个函数(function(){console.log("hello world")})
+
+
+
+
