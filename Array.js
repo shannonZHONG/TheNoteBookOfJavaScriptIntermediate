@@ -8,16 +8,29 @@ var a = ['a', 'b', 'c', 'd']
 
 /*函数接收了一个函数 */
 function f(x, y) {
-       return x + y
+            return x + y
         }
 f(1, 2)
 function f2(fn) {
-      console.log("我接受了一个函数")
+            console.log("我接受了一个函数")
             return undefined
         }
 f2(function(){})
 
 
+/*函数的名字不重要*/
+function sdksldals(skdlskd){
+           console.log("我接受到了一个函数")
+           return undefined 
+}    
+sdksldals( function(){})
         
-
-
+/*再次测试接收的是一个函数*/
+  function x(y) {
+            if (typeof y !== "function") {
+                console.log("滚")
+                return false
+            } else {
+                console.log("我接受到了一个函数")
+            }
+        }
