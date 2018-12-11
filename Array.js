@@ -50,5 +50,38 @@ function 接收函数且执行这个函数(y) {
 接收函数且执行这个函数(function(){console.log("hello world")})
 
 
+function 接收函数同时传参且执行这个函数(y) {
+            if (typeof y !== "function") {
+                console.log("滚")
+                return false
+            } else {
+                console.log("我接受到了一个函数")
+                y(666)
+                console.log("并且我执行了这个函数")
+                return true
+            }
+        }
+接收函数同时传参且执行这个函数(function() {
+            console.log(arguments)
+        })
+
+
+
+function 接收函数同时传参且执行这个函数(y) {
+            if (typeof y !== "function") {
+                console.log("滚")
+                return false
+            } else {
+                console.log("我接受到了一个函数")
+                y(666)
+                console.log("并且我执行了这个函数")
+                return true
+            }
+        }
+接收函数同时传参且执行这个函数(function(skdlaksdslda) {
+            console.log(skdlaksdslda)
+        })
+
+
 
 
