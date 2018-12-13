@@ -117,6 +117,20 @@ obj.forEach = function(x) {
 }
 obj.forEach.call(obj,function(value,key){console.log(value,key)})
 
+/*关于a.sort的迷思*/
+var a = [5, 6, 3, 4, 1, 2]
+
+a.sort.call(a,function(x, y) {
+            return y - x
+        })
+
+a.sort.call(a,function(x, y) {
+            return x - y
+        })
+
+
+
+
 
 
 
