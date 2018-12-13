@@ -83,6 +83,7 @@ function 接收函数同时传参且执行这个函数(y) {
         })
 
 
+/*forEach 接受了两个参数 一个是数组 一个是函数 */
 
  function forEach(array, x) {
             for (let i = 0; i < array.length; i++) {
@@ -90,8 +91,32 @@ function 接收函数同时传参且执行这个函数(y) {
             }
         }
 
-        forEach(["a", "b", "c"], function(value, key) {
+forEach(["a", "b", "c"], function(value, key) {
+          console.log(value, key)
+        })
+
+
+ var a = ["a", "b", "c"]
+        a.forEach(function(value, key) {
             console.log(value, key)
         })
+/*a.forEach 没有拿到数组  其实是传了两个参数 但是你看不见*/
+//  a.forEach (function(){}) 等价于 a.forEach.call(a,function(){}) 用this 获取
+// function invocation 一定要用call  
+
+/*证明obj 的确是被 this 传入function之中的 */
+var obj = {
+            0: "a",
+            1: "b",
+            length: 2
+        }
+obj.forEach = function(x) {
+            for (let i = 0; i < this.length; i++) {
+                x(this[i], i)
+            }
+}
+obj.forEach.call(obj,function(value,key){console.log(value,key)})
+
+
 
 
