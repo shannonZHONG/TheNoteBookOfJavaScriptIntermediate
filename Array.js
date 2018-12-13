@@ -49,7 +49,7 @@ function 接收函数且执行这个函数(y) {
         }
 接收函数且执行这个函数(function(){console.log("hello world")})
 
-
+/*接收函数同时传参且执行这个函数*/
 function 接收函数同时传参且执行这个函数(y) {
             if (typeof y !== "function") {
                 console.log("滚")
@@ -66,7 +66,7 @@ function 接收函数同时传参且执行这个函数(y) {
         })
 
 
-
+/*上面用arguments 接收参数 控制台打印出来的参数不明显*/
 function 接收函数同时传参且执行这个函数(y) {
             if (typeof y !== "function") {
                 console.log("滚")
@@ -83,5 +83,15 @@ function 接收函数同时传参且执行这个函数(y) {
         })
 
 
+
+ function forEach(array, x) {
+            for (let i = 0; i < array.length; i++) {
+                x(array[i], i)
+            }
+        }
+
+        forEach(["a", "b", "c"], function(value, key) {
+            console.log(value, key)
+        })
 
 
