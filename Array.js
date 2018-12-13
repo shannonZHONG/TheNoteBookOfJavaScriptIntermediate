@@ -129,6 +129,41 @@ a.sort.call(a,function(x, y) {
         })
 
 
+/*join concat map filter reduce */
+ var a = [1, 2, 3]
+ var testJoin = a.join("test")
+/*以下这几种方法得到的效果都一样*/
+var testJoin1 = a.join(',')
+var testJoin2 = a + ""
+var testJoin3 = a.toString()
+var testJoin4 = a.join()
+ 
+
+/*concat 不仅仅连接数组 还可以复制一个新数组*/
+var a =[1,2,3]
+var b =[4,5,6]
+var c = a.concat(b)
+     
+var d = [7,8,9]
+var e = d.concat([])
+console.log(d===e)
+    
+var f = d
+console.log(f === d) 
+
+
+/*map 和 forEach的差别： map 会返回值 但是forEach 就不会 */
+ var a = [1,2,3]
+    a.map(function(value,key){
+    return value*2
+})
+
+
+
+
+
+
+
 
 
 
