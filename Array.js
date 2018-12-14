@@ -84,9 +84,10 @@ function 接收函数同时传参且执行这个函数(y) {
 
 
 /*forEach 接受了两个参数 一个是数组 一个是函数 */
+/*forEach 接收的那个函数  的作用loop 第一个参数的： 数组  */
 
- function forEach(array, x) {
-            for (let i = 0; i < array.length; i++) {
+function forEach(array, x) {
+         for (let i = 0; i < array.length; i++) {
                 x(array[i], i)
             }
         }
@@ -95,8 +96,7 @@ forEach(["a", "b", "c"], function(value, key) {
           console.log(value, key)
         })
 
-
- var a = ["a", "b", "c"]
+var a = ["a", "b", "c"]
         a.forEach(function(value, key) {
             console.log(value, key)
         })
@@ -174,9 +174,60 @@ console.log(f === d)
    }
 })
 
+/*filter 的用法*/
+var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+var test = a.filter.call(a, function(value, key) {
+            return value >= 5
+        })
+
+
+/*filter 和 map 的融合*/
+var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+var test = a.filter.call(a, function(value, key) {
+            return value % 2 === 0
+        })
+var test1 = test.map.call(test, function(value, key) {
+            return value * value
+        })
+/*链式操作*/
+var test2 = a.filter.call(a, function(value, key) {
+            return value % 2 === 0
+        }).map(function(value) {
+            return value * value
+        })
 
 
 
+/*reduce */
+var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+var test = a.reduce.call(a, function(sum, n) {
+            return sum + n
+        }, 0)
+
+
+/*用reduce 表达/诉说 map 的故事*/
+
+ var a = [1, 2, 3]
+ var test1 = a.reduce.call(a, function(arr, n) {
+            arr.push.call(arr, n * 2)
+            return arr
+
+        }, [])
+ 
+ 
+ 
+ 
+ /*用reduce 表达/诉说  filter 的故事*/
+ 
+ var a = [1, 2, 3]
+ var test = a.reduce.call(a, function(arr, n) {
+ if (n % 2 === 0) {
+                arr.push.call(arr, n)
+
+            }
+ return arr
+ }, [])
 
 
 
