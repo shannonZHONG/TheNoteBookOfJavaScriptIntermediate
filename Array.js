@@ -158,6 +158,24 @@ console.log(f === d)
     return value*2
 })
 
+// 返回值 
+ var a = [1,2,3]
+   a.map.call(a,function(value,key){
+   return value + key 
+})
+
+// 返回一个对象 
+ var a = [1,2,3]
+   a.map.call(a,function(value,key){
+   return {
+        v: value,
+        k: key
+       
+   }
+})
+
+
+
 
 
 
