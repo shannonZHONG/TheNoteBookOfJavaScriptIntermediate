@@ -342,8 +342,10 @@ apple.reduce((result, item, index, array) => {
         }, 0)
 // 0 是初始值 
 
-
-
+var apple = [1, 2, 3, 4, 5]
+apple.reduce.call(apple,(result, item, index, array) => {
+            return result + item
+        }, 0)
 
 
 
