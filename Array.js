@@ -347,6 +347,7 @@ apple.reduce.call(apple,(result, item, index, array) => {
             return result + item
         }, 0)
 
+/*任何语言都是浅拷贝*/
 
 
 
