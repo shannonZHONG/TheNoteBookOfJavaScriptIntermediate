@@ -233,22 +233,69 @@ var test = a.reduce.call(a, function(sum, n) {
  
  /*build your own forEach*/
  
-  Array.prototype.test = function(fn) {
+Array.prototype.test = function(fn) {
             for (let i = 0; i < this.length; i++) {
                 if (i in this) {
                     fn.call(undefined, this[i], i, this)
                 }
             }
         }
-        var a = [1,2,3]
-        var apple = a.test.call(a, function(item, index, array) {
+var a = [1,2,3]
+var apple = a.test.call(a, function(item, index, array) {
             console.log(item, index, array)
         })
 
 
+/*一道经典题 用forEach 来解决
+每一次点击都会有新的作用域出现
+*/
+<html>
 
+<head>
+    hello
+</head>
 
+<body>
 
+    <ul>
+        <li>00001</li>
+        <li>00002</li>
+        <li>00003</li>
+        <li>00004</li>
+        <li>00005</li>
+        <li>00006</li>
+    </ul>
+    <script>
+        let items = document.querySelectorAll("li")
+        let itemArray = Array.prototype.slice.call(items)
+
+        itemArray.forEach((item, index)=>{
+            item.onclick = function() {
+                console.log(index)
+            }
+
+        })
+                          
+
+    </script>
+</body>
+
+</html>
+
+/*build your own Map*/
+Array.prototype.mapTest = function(fn) {
+            let result = []
+            for (let i = 0; i < this.length; i++) {
+                if (i in this) {
+                    result[i] = fn.call(undefined, this[i], i, this)
+                }
+            }
+            return result
+ }
+var a = [1, 2, 3]
+var apple = a.mapTest.call(a, function(item, index, array) {
+          console.log(item, index, array)
+})
 
 
 
