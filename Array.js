@@ -299,3 +299,35 @@ var apple = a.mapTest.call(a, function(item, index, array) {
 
 
 
+
+/*build your own filter */？？？？？？？？？？？？？？？？？有问题 
+Array.prototype.filterTest = function(fn) {
+            let result = []
+            let temp
+            for (let i = 0; i < this.length; i++) {
+                if (i in this) {
+                     // 返回的是真值  就可以把 结果push 到result 这里
+
+                    if (temp = fn.call(undefined, this[i], i, this)) {
+                        result.push( temp)
+
+                    }
+                }
+                return result
+            }
+        }
+
+var a = [1, 2, 3, 4, 5, 6]
+a.filterTest((value) => {return value % 2 === 0 ?true : false}) ????????????????这个有问题 
+a.filter((value) => {return value % 2 === 0 ?true : false})
+
+
+
+
+
+
+
+
+
+
+
