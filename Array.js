@@ -323,6 +323,25 @@ a.filter((value) => {return value % 2 === 0 ?true : false})
 
 
 
+/*how to build your onw reduce */
+ Array.prototype.reduceTest = function(fn, init) {
+            let result = init
+            for (let i = 0; i < this.length; i++) {
+                if (i in this) {
+                    // 多了一个 result  至于怎么使用result 就要看fn 
+                    result = fn.call(undefined, result, this[i], i, this)
+                }
+            }
+            return result
+        }
+
+
+var apple = [1, 2, 3, 4, 5]
+apple.reduce((result, item, index, array) => {
+            return result + item
+        }, 0)
+// 0 是初始值 
+
 
 
 
