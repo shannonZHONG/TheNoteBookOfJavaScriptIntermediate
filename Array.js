@@ -230,6 +230,20 @@ var test = a.reduce.call(a, function(sum, n) {
  }, [])
 
 
+ 
+ /*build your own forEach*/
+ 
+  Array.prototype.test = function(fn) {
+            for (let i = 0; i < this.length; i++) {
+                if (i in this) {
+                    fn.call(undefined, this[i], i, this)
+                }
+            }
+        }
+        var a = [1,2,3]
+        var apple = a.test.call(a, function(item, index, array) {
+            console.log(item, index, array)
+        })
 
 
 
