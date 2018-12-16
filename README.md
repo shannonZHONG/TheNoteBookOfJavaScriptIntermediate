@@ -1,1 +1,1 @@
-# js 深入浅出 代码 合集 
+javaScript: function array prototype constructor  and AskYourSelf 
