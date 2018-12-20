@@ -83,11 +83,30 @@ var a = [1, 2, 3, 4, 5, 6, 7, 8]
 sum.apply(undefined, a)
 
 
+// 关于bind 
 
+function logThisAndArguments(arg1, arg2) {
+    console.log(this);
+    console.log(arg1);
+    console.log(arg2);
+}
 
+const obj = { val: 'Hello!' };
+const fnBound = logThisAndArguments.bind(obj, 'First arg', 'Second arg');
 
-  
+console.log(fnBound);
+// -> [Function: bound logThisAndArguments]
 
+fnBound();
+// -> { val: 'Hello!' }
+// -> First arg
+// -> Second arg
+
+/*
+However, instead of calling the function immediately, bind returns a new function. 
+This new function has the this value and the parameters already set and bound. 
+When it’s invoked, it’ll be invoked with those items already in place.  
+*/
   
   
   
