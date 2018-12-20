@@ -181,13 +181,15 @@ var test = a.filter.call(a, function(value, key) {
         })
 
 
+
 /*filter 和 map 的融合*/
 var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 var test = a.filter.call(a, function(value, key) {
             return value % 2 === 0
         })
-var test1 = test.map.call(test, function(value, key) {
+// 运算不需要key 只需要value 
+var test1 = test.map.call(test, function(value) {
             return value * value
         })
 /*链式操作*/
@@ -233,7 +235,7 @@ var test = a.reduce.call(a, function(sum, n) {
  
  /*build your own forEach*/
  
-Array.prototype.test = function(fn) {
+Array.prototype.forEach = function(fn) {
             for (let i = 0; i < this.length; i++) {
                 if (i in this) {
                     fn.call(undefined, this[i], i, this)
@@ -241,7 +243,7 @@ Array.prototype.test = function(fn) {
             }
         }
 var a = [1,2,3]
-var apple = a.test.call(a, function(item, index, array) {
+var apple = a.forEach.call(a, function(item, index, array) {
             console.log(item, index, array)
         })
 
@@ -300,7 +302,7 @@ var apple = a.mapTest.call(a, function(item, index, array) {
 
 
 
-/*build your own filter */？？？？？？？？？？？？？？？？？有问题 
+/*build your own filter */
 Array.prototype.filterTest = function(fn) {
             let result = []
             let temp
