@@ -123,6 +123,7 @@ Handlerbar(template,{name:"frank"} )
 // 可是上面的例子声明了一个变量 就很不函数式了 
 // 第一次：返回的函数不会  渲染 这个templete 
 //但是第二次 才会 填东西 
+//也可以说成是 惰性求职 因为第一次function返回的 什么都没有做
 function Handlerbar(template){
 return function(data){
 return template.replace('{{name}}',data.name)}
