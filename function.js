@@ -108,15 +108,30 @@ This new function has the this value and the parameters already set and bound.
 When it’s invoked, it’ll be invoked with those items already in place.  
 */
   
+
+// 柯里化 
+//字符串 和 对象的结合 
+var Handlerbar = function(template,data){
+    return template.replace('{{name}}',data.name)
+}
+Handlerbar('<h1> Hi,I am {{name}}}</h1>',{name:"frank"})
   
   
-  
-  
-  
-  
-  
-  
-  
+var template  = '<h1> Hi,I am {{name}}}</h1>'
+Handlerbar(template,{name:"frank"} )  
+
+// 可是上面的例子声明了一个变量 就很不函数式了 
+// 第一次：返回的函数不会  渲染 这个templete 
+//但是第二次 才会 填东西 
+function Handlerbar(template){
+return function(data){
+return template.replace('{{name}}',data.name)}
+}
+
+var test = Handlerbar ('<h1> Hi,I am {{name}}}</h1>') 
+t{(name:"test")}
+
+
  
  
   
