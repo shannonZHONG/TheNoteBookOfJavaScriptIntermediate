@@ -133,6 +133,25 @@ var test = Handlerbar ('<h1> Hi,I am {{name}}}</h1>')
 t{(name:"test")}
 
 
+// 高阶函数 
+// 常规思维 
+var array = [3,2,1,4,5,6,7,8]
+
+var sum = 0
+for(var i = 0; i<array.length;i++){
+if(array[i] % 2 ===0){
+    sum += array[i]
+}
+}
+console.log(sum)
+
+
+
+
+
+
+
+
  
  
   
