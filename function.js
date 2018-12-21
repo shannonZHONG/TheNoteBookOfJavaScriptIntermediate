@@ -145,6 +145,27 @@ if(array[i] % 2 ===0){
 }
 console.log(sum)
 
+// 接受多个函数作为输入 
+ var array = [3, 2, 1, 4, 5, 6, 7, 8]
+ var test = array.filter.call(array, function(value) {
+            return value % 2 === 0
+ }).reduce(function(accumulator, currentValue) {
+            return accumulator + currentValue
+ }, 0)
+ console.log(test)
+
+// 但是还不是科里化 因为要引入变量 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
