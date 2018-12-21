@@ -155,8 +155,15 @@ console.log(sum)
  console.log(test)
 
 // 但是还不是科里化 因为要引入变量 
+var array = [3, 2, 1, 4, 5, 6, 7, 8]
+reduce(filter(array, function(array) {
+            return n % 2 === 0
+        }), function(prev, next) {
+            return prev + next
+        },0)
 
 
+/*需要使用自定义的 reduce 递归 这是一个作业 */ ？？？？？？？？？？？？学完之后 再来写 
 
 
 
