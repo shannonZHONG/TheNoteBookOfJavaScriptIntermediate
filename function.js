@@ -220,9 +220,43 @@ setTimeout(function(a) {
  }), 2000)
 
 
+/*some tips about this in the arrow function*/
 
+// the value of this can not be set by the ES6 arrow function call method.
+var fn = ()=>{
+  console.log(this)
+}
+undefined
+fn.call({name:"test"}) // return window 
 
+/*ES3 this 不符合词法作用域*/
+function fn(){
+var a
+console.log(this)
+function f2(){
+console.log(a)// 肯定是 line 234 var a  a 是变量
+console.log(this)// 但是 line 238 与 line 235 的this  是不同的  
+ // 因为 this 是一个变量 一个每次进入function都会被重新赋值的变量 this 的值 根据 call的第一个参数决定 所以this 不符合词法作用域
+ // 但是如果使用箭头函数， 那么this 是符合词法作用域的游戏规则的
+  
+}
+}
 
+/*this in ES5 is happy about the 词法作用域*/
+function fn(){
+var a
+console.log(this) // 只要这个this确定了 fn3的this 的值也就确定了
+function f2(){
+console.log(a)// 肯定是 line 234 var a  a 是变量
+console.log(this)// 但是 line 238 与 line 235 的this  是不同的  
+
+var fn3 = ()=>{
+console.log(a)
+console.log(this)
+} 
+  
+}
+}
 
  
  
