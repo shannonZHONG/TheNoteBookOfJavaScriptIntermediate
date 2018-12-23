@@ -163,11 +163,36 @@ reduce(filter(array, function(array) {
         },0)
 
 
-/*需要使用自定义的 reduce 递归 这是一个作业 */ ？？？？？？？？？？？？学完之后 再来写 
+/*需要使用自定义的 reduce 递归 这是一个作业 */  /*？？？？？？？？？？？？学完之后 再来写*/ 
 
 
 
+/*setTimeout*/
+/*old function  new function  call this  */
+    setTimeout(function() {
+            console.log(this)
+        }.bind({
+            name: "test"
+        }), 2000)
 
+ /*without bind */
+ setTimeout(function() {
+            console.log(this)
+        }, 2000)
+
+
+/*the setTimeout has a setTimeout */
+/*which setTimeout will be called first?*/
+/*代码的执行顺序 是 先执行这句话 console.log(this)*/
+setTimeout(function(a) {
+            debugger;  
+            console.log(this) // 两个this 不一样 this 是动态的 
+            setTimeout(function(a) { // 这个函数 没有 其他的object 来bind 它 所以就是直接用window 来call 
+                console.log(this)
+            }, 1000)
+}.bind({
+           name: "test"
+}), 1000)
 
 
 
