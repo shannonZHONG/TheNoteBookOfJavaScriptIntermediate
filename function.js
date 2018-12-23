@@ -196,6 +196,15 @@ setTimeout(function(a) {
 
 
 
+ setTimeout(function(a) {
+            debugger;
+            console.log(this)
+            setTimeout(function(a) {
+                console.log(this)
+            }.bind(this), 1000)
+}.bind({
+            name: "test"
+}), 2000)
 
 
 
