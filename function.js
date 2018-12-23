@@ -208,7 +208,16 @@ setTimeout(function(a) {
 }), 2000)
 
 
+/*ES6 rule：this is a var，is a var. */
+/*looking for the value of this depends on which scope the this is in */
+/* being same value , some "this" living diff places of the function could be got by ES6 arrow function, nothing is inexplicit    */
 
+ setTimeout(function(a) {
+            console.log(this)
+            setTimeout((a) => console.log(this), 1000)
+ }.bind({
+            name: "test"
+ }), 2000)
 
 
 
