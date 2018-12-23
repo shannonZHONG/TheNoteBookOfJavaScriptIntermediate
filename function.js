@@ -195,7 +195,8 @@ setTimeout(function(a) {
 }), 1000)
 
 
-
+/*这样 两个setTimeout 都输出同样的结果*/
+/*the new function is called by the object in old function*/
  setTimeout(function(a) {
             debugger;
             console.log(this)
