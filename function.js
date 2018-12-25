@@ -168,7 +168,7 @@ reduce(filter(array, function(array) {
 
 /*setTimeout*/
 /*old function  new function  call this  */
-    setTimeout(function() {
+setTimeout(function() {
             console.log(this)
         }.bind({
             name: "test"
