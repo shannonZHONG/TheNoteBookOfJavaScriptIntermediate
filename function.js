@@ -244,17 +244,17 @@ console.log(this)// 但是 line 238 与 line 235 的this  是不同的
 /*this in ES5 is happy about the 词法作用域*/
 function fn(){
 var a
-console.log(this) // 只要这个this确定了 fn3的this 的值也就确定了
+console.log(this) // 只要这个this 确定了 那么 f2 f3 的this 就都确定了
+  
 function f2(){
-console.log(a)// 肯定是 line 234 var a  a 是变量
-console.log(this)// 但是 line 238 与 line 235 的this  是不同的  
-
+console.log(a) 
+console.log(this)
+}
+  
 var fn3 = ()=>{
 console.log(a)
 console.log(this)
 } 
-  
-}
 }
 
  
