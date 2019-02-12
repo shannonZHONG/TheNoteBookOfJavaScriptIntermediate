@@ -89,7 +89,16 @@ var curriedSum = curry(sum) //先科里化
 //这样做的好处是：当异步求值时，可以等待不同来源的data 
 var test= curriedSum(1)(2)(3)
 
-        
+
+/*函数接受几个参数可以通过length 求到*/
+function sum2(x,y){
+}  
+sum2.length;
+
+function sum3(x,y,z){
+}
+sum3.length
+/*length和计数器 就可以记载 有多少个参数 因为return 的个数 和 length 一样多*/
         
 
 
