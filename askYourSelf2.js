@@ -13,8 +13,9 @@ function addOne(y){
 return sum(1,y)
 }
 
-/*in order to invoke  curry(sum,1),so wirte down the function curry ont addOne  */
-
+/*in order to invoke  curry(sum,1),so wirte down the function curry not addOne  */
+/*pat attention two points of function: what is input and output */
+/*函数式：形式大于逻辑*/
 
 
 
