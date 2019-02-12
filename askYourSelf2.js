@@ -16,8 +16,18 @@ return sum(1,y)
 /*in order to invoke  curry(sum,1),so wirte down the function curry not addOne  */
 /*pat attention two points of function: what is input and output */
 /*函数式：形式大于逻辑*/
+/*用简单的代码来实践科里化： addOne 变成 curry*/
+  function sum(x, y) {
+            return x + y
+        }
 
-
+  function curry(fn, p1) {
+            return function(p2) {
+                return fn.call(undefined, p1, p2)
+            }
+        }
+  var test = curry(sum,2)
+  test(2)
 
 
 
