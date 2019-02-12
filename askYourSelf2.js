@@ -30,8 +30,22 @@ return sum(1,y)
         }
   var test = curry(sum,2)
   test(2)
+  
+/*完全不暴露参数，姿势也有优雅：只接受一个函数，返回一个函数*/
+ function sum(x, y) {
+            return x + y
+        }
 
-
+ function curry(fn) {
+            return function(p1) {
+            return function(p2) {
+            return fn.call(undefined, p1, p2)
+ }
+ }
+ }
+var test1 = curry(sum)
+var test2 = test1(2)
+var test2(3)
 
 
 
