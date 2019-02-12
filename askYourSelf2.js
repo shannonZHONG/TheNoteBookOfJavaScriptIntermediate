@@ -50,6 +50,47 @@ var addTwo = test1(2)/*固定一个参数 也就是科里化之后的sum 当中�
 
 
 
+ function sum(x, y) {
+            return x + y
+        }
+
+ function curry(fn) {
+            return function(p1) {
+            return function(p2) {
+            return fn.call(undefined, p1, p2)
+ }
+ }
+ }
+var test1 = curry(sum)// 先科里化 然后就可以直接使用了 不用像上面这样 一步一步的inoke 
+test1(2)(3)
+
+
+
+
+
+
+/*怎么隐藏三个参数*/
+function sum(x, y, z) {
+            return [x, y, z]
+        }
+
+        function curry(fn) {
+            return function(p1) {
+                return function(p2) {
+                    return function(p3) {
+                        return fn.call(undefined, p1, p2, p3)
+                    }
+                }
+            }
+        }
+
+var curriedSum = curry(sum) //先科里化 
+//如果参数不被传完整 那么 永远都是函数出来 叫做惰性求值 
+//这样做的好处是：当异步求值时，可以等待不同来源的data 
+var test= curriedSum(1)(2)(3)
+
+        
+        
 
 
 
