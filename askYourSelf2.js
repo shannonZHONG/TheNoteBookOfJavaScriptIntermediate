@@ -46,7 +46,7 @@ return sum(1,y)
 var test1 = curry(sum)
 var test2 = test1(2)
 var test2(3)
-
+var addTwo = test1(2)/*固定一个参数 也就是科里化之后的sum 当中的一个参数 被设定成为2 */
 
 
 
