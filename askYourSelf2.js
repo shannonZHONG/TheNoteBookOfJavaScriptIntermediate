@@ -110,7 +110,19 @@ return function(pn){
 
 
 /*思路很重要*/
-  
+function curry(func,fixedParams){
+if(!Array.isArray(fixedParams)){ fixedParams = [] }
+
+return function(){
+let newParams = Array.prototype.slice.call(arguments);
+if((fixedParams.length+newParams.length)<func.length){
+return curry(func,fixedParams.concat(newParams));
+}else{
+return func.apply(undefined,fixedParams.concat(newParams))
+}
+
+}
+}
 
 
 /*guss the souce code:Array.prototype.splice/
