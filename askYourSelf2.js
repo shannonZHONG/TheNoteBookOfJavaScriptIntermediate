@@ -111,8 +111,6 @@ var length = fn.length // 获取length 记录return了多少次新函数
 
 /*guss the souce code:Array.prototype.splice/
 /*apply underscore.js to create a function*/
-/*参考链接 https://blog.wax-o.com/2014/01/how-to-find-deep-and-get-parent-in-javascript-nested-objects-with-recursive-functions-and-the-reference-concept-level-beginner/
-/*anything left ？*/
 
 
 
