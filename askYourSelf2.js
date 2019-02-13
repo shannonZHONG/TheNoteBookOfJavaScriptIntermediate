@@ -102,6 +102,7 @@ sum3.length
         
 function curry(fn){
 var length = fn.length // 获取length 记录return了多少次新函数
+// 需要知道已经发生了什么 就是return了多少次 那么就需要一个计数器 来记录
 
 }
 
