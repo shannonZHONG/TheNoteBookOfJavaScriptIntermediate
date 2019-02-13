@@ -100,7 +100,9 @@ function sum3(x,y,z){
 sum3.length
 /*length和计数器 就可以记载 有多少个参数 因为return 的个数 和 length 一样多*/
         
-
+function curry(fn){
+var length = fn.length
+}
 
 
 
