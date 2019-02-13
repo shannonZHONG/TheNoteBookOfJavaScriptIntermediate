@@ -103,8 +103,19 @@ sum3.length
 function curry(fn){
 var length = fn.length // 获取length 记录return了多少次新函数
 // 需要知道已经发生了什么 就是return了多少次 那么就需要一个计数器 来记录
-
+return function(pn){
+  //那怎么知道return 是最后一次了 
 }
+}
+
+
+function curry(func, fixedParams){
+if(!Array.isArray(fixedParams)){ fixedParams = []}} // 初始化 
+return function(){
+  let newParams = Array.prototype.silice.call(arguments);
+  if((fixedParams.length + newParams.length) < func.length){}
+}
+  }
 
 
 
