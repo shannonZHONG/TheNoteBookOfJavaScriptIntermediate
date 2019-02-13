@@ -101,7 +101,8 @@ sum3.length
 /*length和计数器 就可以记载 有多少个参数 因为return 的个数 和 length 一样多*/
         
 function curry(fn){
-var length = fn.length
+var length = fn.length // 获取length 记录return了多少次新函数
+
 }
 
 
@@ -110,6 +111,7 @@ var length = fn.length
 
 /*guss the souce code:Array.prototype.splice/
 /*apply underscore.js to create a function*/
+/*参考链接 https://blog.wax-o.com/2014/01/how-to-find-deep-and-get-parent-in-javascript-nested-objects-with-recursive-functions-and-the-reference-concept-level-beginner/
 /*anything left ？*/
 
 
