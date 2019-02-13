@@ -111,11 +111,11 @@ return function(pn){
 
 /*思路很重要*/
 function curry(func,fixedParams){
-if(!Array.isArray(fixedParams)){ fixedParams = [] }
+if(!Array.isArray(fixedParams)){ fixedParams = [] }//初始化 
 
 return function(){
-let newParams = Array.prototype.slice.call(arguments);
-if((fixedParams.length+newParams.length)<func.length){
+let newParams = Array.prototype.slice.call(arguments); // 用 var来代替 真正的数字  把新传的参数打散 
+if((fixedParams.length+newParams.length)<func.length){ // 考虑到 最新的参数个数和 function length 的关系 
 return curry(func,fixedParams.concat(newParams));
 }else{
 return func.apply(undefined,fixedParams.concat(newParams))
