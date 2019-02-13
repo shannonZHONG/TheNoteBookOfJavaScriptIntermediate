@@ -109,16 +109,8 @@ return function(pn){
 }
 
 
-function curry(func, fixedParams){
-if(!Array.isArray(fixedParams)){ fixedParams = []}} // 初始化 
-return function(){
-  let newParams = Array.prototype.silice.call(arguments);
-  if((fixedParams.length + newParams.length) < func.length){}
-}
-  }
-
-
-
+/*思路很重要*/
+  
 
 
 /*guss the souce code:Array.prototype.splice/
