@@ -110,6 +110,9 @@ return function(pn){
 
 
 /*思路很重要*/
+function abc(a,b,c){return [a,b,c]}
+
+
 function curry(func,fixedParams){
 if(!Array.isArray(fixedParams)){ fixedParams = [] }//初始化 
 
@@ -124,7 +127,9 @@ return func.apply(undefined,fixedParams.concat(newParams))
 }
 }
 
-
+var curriedAbc = curry(abc)
+crriedAbc(1,2)// 因为参数不够所以要继续等待 
+crriedAbc(1,2)(3)
 /*guss the souce code:Array.prototype.splice/
 /*apply underscore.js to create a function*/
 
