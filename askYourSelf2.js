@@ -132,6 +132,12 @@ crriedAbc(1,2)// 因为参数不够所以要继续等待
 crriedAbc(1,2)(3)
 /*guss the souce code:Array.prototype.splice/
 /*apply underscore.js to create a function*/
+/*solve same question by apply only for and function */
+
+
+
+
+
 
 
 
