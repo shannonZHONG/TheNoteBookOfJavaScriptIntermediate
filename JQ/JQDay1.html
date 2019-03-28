@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head> daydayup
+</head>
+
+<body>
+    <div>
+        <h1> JQ Day1
+        </h1>
+        <h5>
+            手动挡 半自动 全自动的差别 
+        </h5>
+
+        <ul>
+            <li id="item1">选项1</li>
+            <li id="item2">选项2</li>
+            <li id="item3">选项3</li>
+            <li id="item4">选项4</li>
+            <li id="item5">选项5</li>
+        </ul>
+    </div>
+    <script>
+        /* 
+    var allChildren = item3.parentNode.children
+    var array={
+    length:0
+}
+    for(let i=0;i<allChildren.length;i++){
+    if(allChildren[i] !== item3){
+    array[array.length] = allChildren[i]// 给伪数组添加 array 
+    array.length +=1
+}
+}
+        console.log(array)
+        
+*/
+
+        // 给这段代码 一个名字 也可以说成 封装📦  
+
+        function getSiblings(node) { /*API*/
+            var allChildren = node.parentNode.children
+            var array = {
+                length: 0
+            }
+            for (let i = 0; i < allChildren.length; i++) {
+                if (allChildren[i] !== item3) {
+                    array[array.length] = allChildren[i] // 给伪数组添加 array 
+                    array.length += 1
+                }
+            }
+            return array
+        }
+        console.log(getSiblings(item3))
+        /* 给item3 添加 class 的属性 
+        item3.classList.add('a')
+        item3.classList.add('b')
+        item3.classList.add('c')
+        */
+
+        // 与上面三行代码 最后达到的功能 一样  半自动化 
+
+        /*
+        
+        var classes = {
+            'a': true,
+            'b': true,
+            'c': true
+        }
+        for (let key in classes) {
+            var value = classes[key]
+            if (value) {
+                item3.classList.add(key)
+            } else {
+                item3.classList.remove(key)
+            }
+        }
+        */
+
+        // 用函数 将 上面“自动化” 代码📦一下 
+        /*
+        function addClass(node,classes){
+        for(let key in classes){
+        var value = classes[key]
+        if(value){
+        node.classList.add(key)
+}else{
+        node.classList.remove(key)
+}
+}
+}
+*/
+
+
+        // 代码优化： 如果类似的代码，就存在优化的可能
+
+        function addClass(node, classes) {
+            for (let key in classes) {
+                var value = classes[key]
+                var methodName = value ? 'add' : 'remove'
+
+                /*
+                console.log()的魅力
+                console.log(methodName)
+                console.log(node.classList)
+                console.log(node.classList.add)
+                console.log(node.classList[methodName])
+                */
+                node.classList[methodName](key)
+            
+
+                //obj.x
+                //obj['x']
+
+            }
+        }
+        addClass(item3,{a:true,b:false,c:true})
+
+        /*上面的两个functions addClass 和 getSiblings  怎么才能成为一个整体？使用命名空间 */
+
+      
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+</head>
+
+<body>
+    <div>
+        <h1> JQ Day2
+        </h1>
+        <h5>
+            为了满足 
+              ffdom.getSiblings(item3)
+              ffdom.addClass(item3, {
+            a: true,
+            b: false,
+            c: true
+        })
+        以上这样invoke function的方式 ffDom 在前 method 在后 
+        item3在最后 采用了 直接使用 命名空间的方法 所谓命名空间 就是把所有的methd 放在同一个自建的对象里 让user 使用 
+        </h5>
+        <ul>
+            <li id="item1">选项1</li>
+            <li id="item2">选项2</li>
+            <li id="item3">选项3</li>
+            <li id="item4">选项4</li>
+            <li id="item5">选项5</li>
+        </ul>
+    </div>
+    <script>
+        window.ffdom = {}
+        ffdom.getSiblings = function getSiblings(node) { /*API*/
+            var allChildren = node.parentNode.children
+            var array = {
+                length: 0
+            }
+            for (let i = 0; i < allChildren.length; i++) {
+                if (allChildren[i] !== node) {
+                    array[array.length] = allChildren[i] // 给伪数组添加 array 
+                    array.length += 1
+                }
+            }
+            return array
+        }
+        
+        ffdom.addClass = function addClass(node, classes) {
+            for (let key in classes) {
+                var value = classes[key]
+                var methodName = value ? 'add' : 'remove'
+                node.classList[methodName](key)
+            }
+        }
+
+        ffdom.getSiblings(item3)
+        ffdom.addClass(item3, {
+            a: true,
+            b: false,
+            c: true
+        })
+
+    </script>
+</body>
+
+</html>

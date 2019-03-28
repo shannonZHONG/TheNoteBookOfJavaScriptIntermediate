@@ -1,0 +1,71 @@
+<html>
+
+<head> daydayup
+</head>
+
+<body>
+    <div>
+        <h1> this Day2
+        </h1>
+        <h5>
+           修复了 ：一下 当传入的参数 为字符串的时候
+           会发生什么 
+        </h5>
+        <ul>
+            <li id="item1">选项1</li>
+            <li id="item2">选项2</li>
+            <li id="item3">选项3</li>
+            <li id="item4">选项4</li>
+            <li id="item5">选项5</li>
+        </ul>
+    </div>
+    <script>
+        window.jQuery = function(nodeOrSelector) {
+            let node
+            if (typeof nodeOrSelector === "string") {
+                node = document.querySelector(nodeOrSelector)
+                console.log(" is it a string"+node)
+            } else {
+                node = nodeOrSelector
+                console.log("is it just a node" + node)
+            }
+
+
+            return {
+                getSiblings: function() {
+                    var allChildren = node.parentNode.children
+                    var array = {
+                        length: 0
+                    }
+                    for (let i = 0; i < allChildren.length; i++) {
+                        if (allChildren[i] !== node) {
+                            array[array.length] = allChildren[i] // 给伪数组添加 array 
+                            array.length += 1
+                        }
+                    }
+                    return array
+
+                },
+                // 这里apply 闭包 因为node 不是在 addclass 这个里面声明的 而是在 addClass function 之外声明的 
+                // 如果一个函数apply 的变量（是外面的） 那么node 和 这个匿名函数 统称为 闭包 
+                addClass: function(classes) {
+                    classes.forEach((value) => node.classList.add(value))
+                }
+            }
+        }
+        // ffdom.getSiblings(item3)
+        // ffdom.addClass(item3)
+        // 下面这种方式是把参数 提前传给了 jQuery 此后就存在了 jQuery 
+        // JQ：接受一个old node 返回一个对象 
+
+
+        var node2 = jQuery('#item3')
+        node2.getSiblings()
+        node2.addClass(['a', 'b', 'c'])
+        
+        // Jquery 实质上 是一个构造函数 接受一个参数这个参数可能是节点
+        // 然后返回一个方法对象去操作节点
+    </script>
+</body>
+
+</html>

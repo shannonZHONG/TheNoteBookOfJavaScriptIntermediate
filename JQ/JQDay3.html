@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head> daydayup
+</head>
+
+<body>
+    <div>
+        <h1> JQ Day3
+        </h1>
+        <h5>
+             为了满足   
+             item3.getSiblings.call(item3) 
+             item3.addClass.call(item3,['a','b','c'])
+             以上这样调用函数的方式： item3在前 method 在后 
+             采用了原形链的方式 
+             缺点:可以随意更改node 的共有属性 node很容易被覆盖
+             优点：不用传参数 
+        </h5>
+        <ul>
+            <li id="item1">选项1</li>
+            <li id="item2">选项2</li>
+            <li id="item3">选项3</li>
+            <li id="item4">选项4</li>
+            <li id="item5">选项5</li>
+        </ul>
+    </div>
+    <script>
+    
+        Node.prototype.getSiblings = function(){
+         var allChildren = this.parentNode.children
+            var array = {
+                length: 0
+            }
+            for (let i = 0; i < allChildren.length; i++) {
+                if (allChildren[i] !== this) {
+                    array[array.length] = allChildren[i] // 给伪数组添加 array 
+                    array.length += 1
+                }
+            }
+            return array
+        }
+        
+        Node.prototype.addClass = function (classes){
+        classes.forEach((value) => this.classList.add(value))
+}
+        
+
+        item3.getSiblings.call(item3) 
+        item3.addClass.call(item3,['a','b','c'])
+        // why item3._proto_ 不等于 Node.prototype 
+        
+        
+
+    </script>
+</body>
+
+</html>
